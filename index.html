@@ -7,18 +7,23 @@
     <body>
         <h1>Tarefas</h1>
         <ul>
-            <li>ir para escola</li>
+            <li>beber agua</li>
+           
         </ul>
         <input>
         <button onclick="add()">adicionar</button>
         <script>
-            function add() {
-        const ul =document.querySelector("ul")
-        console.log (ul)
-    }
-        
-        
-        </script>
-    </body>
+        function add() {
+        const ul = document.querySelector("ul")
+        const input = document.querySelector("input")
+        const tarefa = input.value
 
-</html> 
+        const li = document.createElement("li")
+        li.innerText = tarefa
+        ul.appendChild(li)
+        imput.value = "  "
+    }  
+    </script>
+    </body>
+    </html> 
+    
