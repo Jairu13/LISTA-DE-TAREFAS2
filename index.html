@@ -5,24 +5,43 @@
         <title>TAREFAS-DO-DIA</title>
     </head>
     <body>
-        <h1>Tarefas</h1>
+      
         <ul>
-            <li>beber agua</li>
-           
+            <li>comprar agua</li>
         </ul>
         <input>
         <button onclick="add()">adicionar</button>
         <script>
-        function add() {
-        const ul = document.querySelector("ul")
-        const input = document.querySelector("input")
-        const tarefa = input.value
+            
+            // estado da aplicação
+            const tarefas = ['comprar agua']
+            
+            tarefas.push("nova tarefa")
+            console.log(tarefas)
 
-        const li = document.createElement("li")
-        li.innerText = tarefa
-        ul.appendChild(li)
-        imput.value = "  "
-    }  
+        function add() {
+            const input = document.querySelector("input")
+            const tarefa = input.value
+            tarefa.push(tarefa)
+            input.value = "  "
+            render()
+        }  
+        function render(){
+            const ul = document.querySelector("ul")
+
+        tarefa.forEach(function(tarefa){
+            console.log(tarefa)
+
+            const li = document.createElement("li")
+             li.innerText = tarefa
+             ul.appendChild(li)
+             
+        })
+            
+        
+    };
+        
+    render()
     </script>
     </body>
     </html> 
