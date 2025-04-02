@@ -14,19 +14,18 @@
         <script>
             
             // estado da aplicação
-            const tarefas = ['comprar agua']
             
             tarefas.push("nova tarefa")
             console.log(tarefas)
 
-        function add() {
+        function render() {
             const input = document.querySelector("input")
             const tarefa = input.value
             tarefa.push(tarefa)
             input.value = "  "
-            render()
+
         }  
-        function render(){
+        function add(){
             const ul = document.querySelector("ul")
 
         tarefa.forEach(function(tarefa){
@@ -35,7 +34,7 @@
             const li = document.createElement("li")
              li.innerText = tarefa
              ul.appendChild(li)
-             
+             render()
         })
             
         
