@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
-    </html>
-    <head>
-        <title>TAREFAS-DO-DIA</title>
-    </head>
-    <body>
-      
-        <ul>
-            <li>comprar agua</li>
-        </ul>
-        <input>
-        <button onclick="add()">adicionar</button>
-        <script>
-            
-            // estado da aplicação
-            
-            tarefas.push("nova tarefa")
+
+<head>
+    <title>TAREFAS-DO-DIA</title>
+</head>
+
+<body>
+
+    <ul>
+        <li>comprar agua</li>
+    </ul>
+    <input />
+    <button onclick="add()">adicionar</button>
+    <script>
+
+        let tarefas = []
+
+        function add() {
+            const input = document.querySelector("input")
+
+            const tarefa = input.value
+
+            tarefas.push(tarefa)
+
+            render()
+
             console.log(tarefas)
+        }
 
         function render() {
             const input = document.querySelector("input")
             const tarefa = input.value
-            tarefa.push(tarefa)
-            input.value = "  "
 
-        }  
-        function add(){
             const ul = document.querySelector("ul")
 
-        tarefa.forEach(function(tarefa){
-            console.log(tarefa)
-
             const li = document.createElement("li")
-             li.innerText = tarefa
-             ul.appendChild(li)
-             render()
-        })
-            
-        
-    };
-        
-    render()
+            li.innerText = tarefa
+            ul.appendChild(li)
+
+            input.value = "  "
+        }
     </script>
-    </body>
-    </html> 
-    
+</body>
+
+</html>
