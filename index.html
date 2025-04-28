@@ -3,43 +3,99 @@
 
 <head>
     <title>TAREFAS-DO-DIA</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        body {
+            border: 10px solid blue;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: blue;
+        }
+
+        header {
+            color: lightblue;
+            text-transform: uppercase;
+            font-size: 10px;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        main {
+            flex: auto;
+            background: lightblue;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        main ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        main li {
+            border-bottom: 1px solid blue;
+            padding: 5px 0;
+        }
+
+        footer {
+            display: flex;
+            padding-top: 5px;
+        }
+        footer input{
+            flex: auto;
+            padding: 5px;
+        }
+    </style>
 </head>
 
 <body>
-
-    <ul>
-        <li>comprar agua</li>
-    </ul>
-    <input />
-    <button onclick="add()">adicionar</button>
+    <header>
+        <h1>Tarefas</h1>
+    </header>
+    <main>
+        <ul></ul>
+    </main>
+    <footer>
+        <input />
+        <button onclick="add()">adicionar</button>
+    </footer>
     <script>
 
-        let tarefas = []
+        //estado da aplicação
+        const tarefas = ['comprar agua ']
 
+        // ALTERADORES DE ESTADO DA APLICAÇÃO
         function add() {
             const input = document.querySelector("input")
-
             const tarefa = input.value
-
             tarefas.push(tarefa)
-
+            input.value = ""
             render()
-
-            console.log(tarefas)
         }
 
+        // mostrar estado na tela
         function render() {
-            const input = document.querySelector("input")
-            const tarefa = input.value
-
             const ul = document.querySelector("ul")
+            ul.innerHTML = null
 
-            const li = document.createElement("li")
-            li.innerText = tarefa
-            ul.appendChild(li)
+            tarefas.forEach(function (tarefa) {
+                const li = document.createElement("li")
+                li.innerText = tarefa
+                ul.appendChild(li)
+            })
 
-            input.value = "  "
+
+
         }
+
+        // iniciar
+        render()
     </script>
 </body>
 
