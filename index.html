@@ -64,66 +64,9 @@
     <footer>
         <input placeholder="Digite uma tarefa..." />
         <button onclick="add()">adicionar</button>
-        <button onclick="linpar()">linpar lista</button>
+        <button onclick="limpar()">limpar lista</button>
     </footer>
-    <script>
-
-        //estado da aplicação
-        const tarefas = ['comprar agua ']
-
-        // ALTERADORES DE ESTADO DA APLICAÇÃO
-        function add() {
-            const input = document.querySelector("input")
-            const tarefa = input.value
-            tarefas.push(tarefa)
-            input.value = ""
-            render()
-        }
-
-        function linpar(){
-            tarefas.length = 0
-            tarefas.push('comprar agua ')
-            render()
-        }
-
-        function editar(index) {
-            const novoTexto = prompt("modificar tarefa:", tarefas[index])
-            if (novoTexto !== null && novoTexto.trim() !== "") {
-                tarefas[index] = novoTexto.trim()
-                render()
-            }
-        
-        }
-
-        // mostrar estado na tela
-        function render() {
-            const ul = document.querySelector("ul")
-            ul.innerHTML = ""
-
-            tarefas.forEach(function (tarefa, index) {
-                const li = document.createElement("li")
-
-                const span = document.createElement("span")
-                span.innerText = tarefa
-
-
-                const btneditar = document.createElement("button")
-                btneditar.innerText = "Editar"
-                btneditar.onauxclick = () => editar(index)
-              
-
-                li.appendChild(span)
-                li.appendChild(btneditar)
-                ul.appendChild(li)
-            })
-
-
-
-        }
-
-        // iniciar
-        render()
-    </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
