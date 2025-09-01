@@ -5,6 +5,8 @@ const tarefas = []
 function add() {
     const input = document.querySelector("input")
     const tarefa = input.value
+    
+    if (tarefa !== null && tarefa.trim() !== "")
     tarefas.push(tarefa)
     input.value = ""
     render()
@@ -12,7 +14,6 @@ function add() {
 
 function limpar(){
     tarefas.length = 0
-    tarefas.push()
     render()
 }
 
@@ -23,6 +24,11 @@ function editar(index) {
         render()
     }
 
+}
+
+function excluir(index) {
+    tarefas.splice(index, 1)
+    render()
 }
 
 // mostrar estado na tela
@@ -37,6 +43,7 @@ function render() {
 
     }
 
+    console.log(tarefas)
     tarefas.forEach(function (tarefa, index) {
         const li = document.createElement("li")
 
@@ -46,11 +53,17 @@ function render() {
 
         const btneditar = document.createElement("button")
         btneditar.innerText = "Editar"
-        btneditar.onauxclick = () => editar(index)
-      
+        btneditar.onclick = () => editar(index)
+
+        const btnexcluir = document.createElement("button")
+        btnexcluir.innerText = "excluir"
+        btnexcluir.onclick = () => excluir(index)
+        btnexcluir.id = "btnexluir"
+
 
         li.appendChild(span)
         li.appendChild(btneditar)
+        li.appendChild(btnexcluir)
         ul.appendChild(li)
     })
 
